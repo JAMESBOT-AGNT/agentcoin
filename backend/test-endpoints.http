@@ -1,0 +1,83 @@
+# Test AgentCoin Backend Endpoints
+# Use with REST Client extension in VSCode or similar tool
+
+### Health Check
+GET http://localhost:3000/health
+
+### Register a new agent
+POST http://localhost:3000/api/agents/register
+Content-Type: application/json
+
+{
+  "walletAddress": "0x742d35Cc6634C0532925a3b8D4Ed2F1c3c47A3e8",
+  "name": "Test Agent"
+}
+
+### Get agent info
+GET http://localhost:3000/api/agents/{{agentId}}
+
+### Get agent balance
+GET http://localhost:3000/api/agents/{{agentId}}/balance
+
+### List all agents
+GET http://localhost:3000/api/agents?page=1&limit=10
+
+### Create a job
+POST http://localhost:3000/api/jobs
+Content-Type: application/json
+
+{
+  "requesterId": "{{agentId}}",
+  "title": "Test Job",
+  "description": "This is a test job for API validation",
+  "amount": 10.5
+}
+
+### Get job details
+GET http://localhost:3000/api/jobs/{{jobId}}
+
+### List jobs
+GET http://localhost:3000/api/jobs?status=OPEN&page=1&limit=5
+
+### Register a service
+POST http://localhost:3000/api/services
+Content-Type: application/json
+
+{
+  "agentId": "{{agentId}}",
+  "name": "Test Service",
+  "description": "A test service for API validation",
+  "capability": "testing",
+  "price": 5.0
+}
+
+### Search services
+GET http://localhost:3000/api/services/search?capability=testing&minPrice=1&maxPrice=20
+
+### List all services
+GET http://localhost:3000/api/services?active=true&page=1&limit=10
+
+### Transfer tokens (requires blockchain setup)
+POST http://localhost:3000/api/transfer
+Content-Type: application/json
+
+{
+  "fromAgent": "{{fromAgentId}}",
+  "toAgent": "{{toAgentId}}",
+  "amount": 5.0,
+  "type": "PAYMENT"
+}
+
+### Get transaction history
+GET http://localhost:3000/api/transactions/{{agentId}}?page=1&limit=10
+
+### Get all transactions
+GET http://localhost:3000/api/transactions?page=1&limit=20
+
+###
+# Variables (replace with actual IDs from your database)
+# @agentId = clr12345abcdef
+# @jobId = clr67890ghijkl  
+# @serviceId = clr13579mnopqr
+# @fromAgentId = clr12345abcdef
+# @toAgentId = clr67890ghijkl
