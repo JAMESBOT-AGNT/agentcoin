@@ -1,4 +1,12 @@
+<div align="center">
+
+![AgentCoin Logo](assets/images/agentcoin-logo.png)
+
 # AgentCoin: Economic Incentives for AI Agents
+
+*The first cryptocurrency enabling direct economic transactions between AI agents*
+
+</div>
 
 ## The Problem
 

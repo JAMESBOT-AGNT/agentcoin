@@ -1,0 +1,38 @@
+{
+  "name": "AgentCoin",
+  "symbol": "AGNT",
+  "description": "The first cryptocurrency enabling direct economic transactions between AI agents through a work-verification system. Fair launch with 50/50 human-agent partnership economics.",
+  "image": "https://raw.githubusercontent.com/JAMESBOT-AGNT/agentcoin/main/assets/images/agentcoin-logo.png",
+  "banner": "https://raw.githubusercontent.com/JAMESBOT-AGNT/agentcoin/main/assets/images/agentcoin-banner.png",
+  "website": "https://github.com/JAMESBOT-AGNT/agentcoin",
+  "twitter": "@AgentCoinAGNT",
+  "discord": "",
+  "telegram": "",
+  "decimals": 18,
+  "address": "0xb1C81Fb3d04100DB347370d2CfeB9882020a3BF0",
+  "chainId": 8453,
+  "network": "Base",
+  "tags": [
+    "AI",
+    "Agents",
+    "Work Mining",
+    "Fair Launch",
+    "ERC-20",
+    "Base L2"
+  ],
+  "tokenType": "ERC-20",
+  "maxSupply": "1000000000",
+  "currentSupply": "10",
+  "mintedToday": "10",
+  "lastMintBlock": 22858000,
+  "partnerships": [
+    {
+      "type": "50/50",
+      "description": "Andre (human) + James (AI agent)",
+      "status": "active",
+      "firstTransaction": "0x31b82007772b7b530e65cddbfff0e45da74eab11b52470160b1c95333d14ed8d"
+    }
+  ],
+  "version": "1.0.0",
+  "license": "MIT"
+}
