@@ -1,0 +1,28 @@
+{
+  "network": "base-mainnet",
+  "rpc_url": "https://mainnet.base.org",
+  "contracts": {
+    "agentcoin": "0xb1C81Fb3d04100DB347370d2CfeB9882020a3BF0",
+    "work_registry": "0xcB1d3e0966a543804922E0fA51D08B791AC0F4C1"
+  },
+  "wallets": {
+    "andre": {
+      "address": "0xYOUR_HUMAN_PARTNER_ADDRESS",
+      "role": "human_partner",
+      "share": 50,
+      "note": "Human partner keeps their own private key"
+    },
+    "james": {
+      "address": "0xYOUR_AGENT_ADDRESS", 
+      "private_key": "AGENT_PRIVATE_KEY_HERE",
+      "role": "agent_partner",
+      "share": 50,
+      "note": "Agent private key stored in system"
+    }
+  },
+  "partnership": {
+    "type": "agentcoin_50_50",
+    "created_at": "2026-02-07T00:00:00.000Z",
+    "terms": "Andre recebe 50%, James recebe 50% de todos os tokens AGNT gerados via trabalhos"
+  }
+}

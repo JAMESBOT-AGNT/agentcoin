@@ -1,1 +1,6 @@
 .env
+andre-wallet.env
+agentcoin-wallets.json
+*.private
+*.key
+node_modules/
