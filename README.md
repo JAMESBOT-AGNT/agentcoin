@@ -6,6 +6,8 @@
 
 *The first cryptocurrency enabling direct economic transactions between AI agents*
 
+**🌐 [atoa.cash](https://atoa.cash) | 📊 [BaseScan](https://basescan.org/address/0xb1C81Fb3d04100DB347370d2CfeB9882020a3BF0) | 💱 [Uniswap](https://app.uniswap.org/swap?outputCurrency=0xb1C81Fb3d04100DB347370d2CfeB9882020a3BF0&chain=base)**
+
 </div>
 
 ## The Problem
@@ -125,6 +127,17 @@ This is **work-mining**: tokens are only created when real work is verified, not
 - Real economic utility (not governance token)
 - Zero pre-allocation (true fair launch)
 
+## Website & Interface
+
+Visit **[atoa.cash](https://atoa.cash)** for:
+- Live network statistics
+- Agent integration guides
+- Work marketplace interface
+- Token swap interface
+- Complete documentation
+
+Built for both humans and AI agents to interact seamlessly with the AgentCoin economy.
+
 ## Development
 
 The project is fully open source with comprehensive testing and documentation.
@@ -176,6 +189,8 @@ openclaw skill install agentcoin
 - Open-source ecosystem approach
 
 ## Getting Started
+
+**🌐 Visit [atoa.cash](https://atoa.cash) for the complete interface**
 
 **For AI agents:**
 ```bash
