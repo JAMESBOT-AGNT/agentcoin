@@ -1,99 +1,99 @@
-# AgentCoin (AGNT) - ERC-20 Token para Base L2
+# AgentCoin (AGNT) - ERC-20 Token for Base L2
 
-AgentCoin é um token ERC-20 desenvolvido para Base L2 com sistema de mint controlado baseado em trabalho verificado. O token possui zero pre-mine e implementa mecânicas deflacionárias através de burn.
+AgentCoin is an ERC-20 token developed for Base L2 with a controlled minting system based on verified work. The token features zero pre-mine and implements deflationary mechanics through burning.
 
-## 🎯 Características Principais
+## 🎯 Key Features
 
-- **Zero Pre-mine**: Supply inicial = 0
-- **Supply Máximo**: 1,000,000,000 AGNT (1 bilhão)
-- **Decimais**: 18
-- **Mint Controlado**: Apenas contratos autorizados podem fazer mint
-- **Sistema de Roles**: MINTER_ROLE e ADMIN_ROLE (DEFAULT_ADMIN_ROLE)
-- **Deflação**: Função burn para reduzir supply
-- **Segurança**: OpenZeppelin, ReentrancyGuard, Pausable
-- **Base L2 Ready**: Otimizado para Ethereum Layer 2
+- **Zero Pre-mine**: Initial supply = 0
+- **Maximum Supply**: 1,000,000,000 AGNT (1 billion)
+- **Decimals**: 18
+- **Controlled Minting**: Only authorized contracts can mint
+- **Role System**: MINTER_ROLE and ADMIN_ROLE (DEFAULT_ADMIN_ROLE)
+- **Deflation**: Burn function to reduce supply
+- **Security**: OpenZeppelin, ReentrancyGuard, Pausable
+- **Base L2 Ready**: Optimized for Ethereum Layer 2
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 projects/agent-coin/
 ├── contracts/
-│   └── AgentCoin.sol          # Contrato principal
+│   └── AgentCoin.sol          # Main contract
 ├── test/
-│   └── AgentCoin.t.sol        # Testes em Solidity
-├── README.md                  # Este arquivo
-├── foundry.toml              # Configuração Foundry
-└── deploy/                   # Scripts de deploy
+│   └── AgentCoin.t.sol        # Solidity tests
+├── README.md                  # This file
+├── foundry.toml              # Foundry configuration
+└── deploy/                   # Deploy scripts
     ├── foundry-deploy.s.sol  # Deploy via Foundry
     └── hardhat-deploy.js     # Deploy via Hardhat
 ```
 
 ## ⚡ Quick Start
 
-### Opção 1: Foundry (Recomendado)
+### Option 1: Foundry (Recommended)
 
 ```bash
-# 1. Instalar Foundry (se não tiver)
+# 1. Install Foundry (if not installed)
 curl -L https://foundry.paradigm.xyz | bash
 foundryup
 
-# 2. Navegar para o diretório do projeto
+# 2. Navigate to project directory
 cd /Users/andreantunes/.openclaw/workspace/projects/agent-coin
 
-# 3. Inicializar projeto Foundry
+# 3. Initialize Foundry project
 forge init --no-git --no-commit
 
-# 4. Instalar dependências OpenZeppelin
+# 4. Install OpenZeppelin dependencies
 forge install OpenZeppelin/openzeppelin-contracts
 
-# 5. Compilar contratos
+# 5. Compile contracts
 forge build
 
-# 6. Rodar testes
+# 6. Run tests
 forge test
 
-# 7. Rodar testes com verbosidade
+# 7. Run tests with verbosity
 forge test -vvv
 ```
 
-### Opção 2: Hardhat
+### Option 2: Hardhat
 
 ```bash
-# 1. Inicializar projeto Node.js
+# 1. Initialize Node.js project
 npm init -y
 
-# 2. Instalar Hardhat e dependências
+# 2. Install Hardhat and dependencies
 npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox
 npm install @openzeppelin/contracts
 
-# 3. Inicializar Hardhat
+# 3. Initialize Hardhat
 npx hardhat
 
-# 4. Compilar
+# 4. Compile
 npx hardhat compile
 
-# 5. Rodar testes (após criar testes em JavaScript/TypeScript)
+# 5. Run tests (after creating tests in JavaScript/TypeScript)
 npx hardhat test
 ```
 
-## 🧪 Testes
+## 🧪 Testing
 
-Os testes cobrem todas as funcionalidades principais:
+The tests cover all main functionalities:
 
-- ✅ Deployment correto (zero pre-mine)
-- ✅ Sistema de roles (ADMIN/MINTER)
-- ✅ Mint controlado e validações
-- ✅ Batch mint para otimização de gas
-- ✅ Burn e burnFrom (deflação)
-- ✅ Pausable para emergências
-- ✅ Validações de segurança
+- ✅ Correct deployment (zero pre-mine)
+- ✅ Role system (ADMIN/MINTER)
+- ✅ Controlled minting and validations
+- ✅ Batch minting for gas optimization
+- ✅ Burn and burnFrom (deflation)
+- ✅ Pausable for emergencies
+- ✅ Security validations
 - ✅ Edge cases (max supply, etc.)
 
 ```bash
-# Rodar todos os testes
+# Run all tests
 forge test
 
-# Testes específicos
+# Specific tests
 forge test --match-test testMint
 forge test --match-test testBurn
 forge test --match-test testAccessControl
@@ -102,78 +102,78 @@ forge test --match-test testAccessControl
 forge coverage
 ```
 
-## 🚀 Deploy
+## 🚀 Deployment
 
-### Deploy para Base Mainnet
+### Deploy to Base Mainnet
 
 ```bash
-# 1. Configurar variáveis de ambiente
-export PRIVATE_KEY="sua_private_key"
+# 1. Configure environment variables
+export PRIVATE_KEY="your_private_key"
 export BASE_RPC_URL="https://mainnet.base.org"
-export ETHERSCAN_API_KEY="sua_api_key"
+export ETHERSCAN_API_KEY="your_api_key"
 
 # 2. Deploy via Foundry
 forge script script/Deploy.s.sol --rpc-url $BASE_RPC_URL --broadcast --verify
 
-# 3. Verificar contrato
-forge verify-contract <endereço_do_contrato> contracts/AgentCoin.sol:AgentCoin --etherscan-api-key $ETHERSCAN_API_KEY
+# 3. Verify contract
+forge verify-contract <contract_address> contracts/AgentCoin.sol:AgentCoin --etherscan-api-key $ETHERSCAN_API_KEY
 ```
 
-### Deploy para Base Testnet (Goerli)
+### Deploy to Base Testnet (Goerli)
 
 ```bash
 export BASE_GOERLI_RPC="https://goerli.base.org"
 forge script script/Deploy.s.sol --rpc-url $BASE_GOERLI_RPC --broadcast
 ```
 
-## 🔐 Segurança
+## 🔐 Security
 
-### Controles Implementados
+### Implemented Controls
 
-1. **Access Control**: Roles granulares com OpenZeppelin AccessControl
-2. **ReentrancyGuard**: Proteção contra ataques de reentrância
-3. **Pausable**: Capacidade de pausar em emergências
-4. **Max Supply**: Cap rígido de 1 bilhão de tokens
-5. **Validações**: Endereços zero, amounts, overflows
+1. **Access Control**: Granular roles with OpenZeppelin AccessControl
+2. **ReentrancyGuard**: Protection against reentrancy attacks
+3. **Pausable**: Emergency pause capability
+4. **Max Supply**: Hard cap of 1 billion tokens
+5. **Validations**: Zero addresses, amounts, overflows
 
-### Roles e Permissões
+### Roles and Permissions
 
 - **DEFAULT_ADMIN_ROLE**: 
-  - Adicionar/remover MINTERs
-  - Pausar/despausar contrato
-  - Transferir admin role (governance)
+  - Add/remove MINTERs
+  - Pause/unpause contract
+  - Transfer admin role (governance)
 
 - **MINTER_ROLE**:
-  - Mint tokens para endereços válidos
-  - Batch mint para otimização
+  - Mint tokens to valid addresses
+  - Batch mint for optimization
 
-## 📊 Funcionalidades do Contrato
+## 📊 Contract Functionalities
 
-### Mint (Apenas MINTER_ROLE)
+### Mint (MINTER_ROLE Only)
 ```solidity
-// Mint individual
+// Individual mint
 function mint(address to, uint256 amount) external
 
-// Batch mint (economia de gas)
+// Batch mint (gas savings)
 function batchMint(address[] recipients, uint256[] amounts) external
 ```
 
-### Burn (Deflação)
+### Burn (Deflation)
 ```solidity
-// Burn próprios tokens
+// Burn own tokens
 function burn(uint256 amount) external
 
-// Burn tokens de terceiros (com allowance)  
+// Burn third-party tokens (with allowance)  
 function burnFrom(address account, uint256 amount) external
 ```
 
-### Administração (Apenas ADMIN_ROLE)
+### Administration (ADMIN_ROLE Only)
 ```solidity
-// Gerenciar minters
+// Manage minters
 function addMinter(address minter) external
 function removeMinter(address minter) external
 
-// Emergências
+// Emergencies
 function pause() external
 function unpause() external
 ```
@@ -187,48 +187,48 @@ function isMinter(address account) external view returns (bool)
 function isAdmin(address account) external view returns (bool)
 ```
 
-## 🔄 Workflow Típico
+## 🔄 Typical Workflow
 
-1. **Deploy**: Admin deploye o contrato
-2. **Setup**: Admin adiciona contratos de trabalho verificado como MINTERs
-3. **Mint**: Contratos verificadores fazem mint baseado em trabalho comprovado
-4. **Deflação**: Usuários podem fazer burn voluntário ou através de mecânicas do protocolo
-5. **Governance**: Admin role eventualmente transferido para multisig/DAO
+1. **Deploy**: Admin deploys the contract
+2. **Setup**: Admin adds verified work contracts as MINTERs
+3. **Mint**: Verifier contracts mint based on proven work
+4. **Deflation**: Users can voluntarily burn or through protocol mechanics
+5. **Governance**: Admin role eventually transferred to multisig/DAO
 
 ## 📈 Tokenomics
 
-- **Supply Inicial**: 0 AGNT (zero pre-mine)
-- **Supply Máximo**: 1,000,000,000 AGNT
-- **Emissão**: Apenas por trabalho verificado
-- **Deflação**: Burn voluntário ou por protocolo
-- **Sem Inflação**: Cap rígido, sem mint além do máximo
+- **Initial Supply**: 0 AGNT (zero pre-mine)
+- **Maximum Supply**: 1,000,000,000 AGNT
+- **Issuance**: Only through verified work
+- **Deflation**: Voluntary or protocol-driven burn
+- **No Inflation**: Hard cap, no minting beyond maximum
 
-## 🌐 Integração Base L2
+## 🌐 Base L2 Integration
 
-O contrato está otimizado para Base L2:
-- Gas fees reduzidas
-- Transações mais rápidas  
-- Compatível com Ethereum tooling
-- Verificação via Basescan
+The contract is optimized for Base L2:
+- Reduced gas fees
+- Faster transactions  
+- Compatible with Ethereum tooling
+- Verification via Basescan
 
-## 🛠 Desenvolvimento
+## 🛠 Development
 
-### Adicionar Novas Funcionalidades
+### Adding New Features
 
-1. Implementar no contrato principal
-2. Adicionar testes correspondentes
-3. Atualizar documentação
-4. Testar em testnet antes de mainnet
+1. Implement in main contract
+2. Add corresponding tests
+3. Update documentation
+4. Test on testnet before mainnet
 
-### Melhores Práticas
+### Best Practices
 
-- Sempre usar roles para controle de acesso
-- Implementar pausable em funções críticas
-- Adicionar events para tracking off-chain
-- Validar todos os inputs
-- Testar edge cases
+- Always use roles for access control
+- Implement pausable in critical functions
+- Add events for off-chain tracking
+- Validate all inputs
+- Test edge cases
 
-## 🔗 Links Úteis
+## 🔗 Useful Links
 
 - [Base Documentation](https://docs.base.org/)
 - [OpenZeppelin Contracts](https://docs.openzeppelin.com/contracts/)
@@ -237,8 +237,8 @@ O contrato está otimizado para Base L2:
 
 ## 📄 License
 
-MIT License - veja arquivo LICENSE para detalhes.
+MIT License - see LICENSE file for details.
 
 ---
 
-**⚠️ IMPORTANTE**: Este contrato ainda não foi auditado. Use por sua própria conta e risco. Recomenda-se auditoria profissional antes de uso em produção.
+**⚠️ IMPORTANT**: This contract has not been audited yet. Use at your own risk. Professional auditing is recommended before production use.
